@@ -21,8 +21,7 @@ class Task extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'description',
+        'name'
     ];
 
     /**
@@ -32,5 +31,6 @@ class Task extends Model
      */
     protected $casts = [
         'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 }

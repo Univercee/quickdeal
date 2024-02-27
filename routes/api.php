@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/tasks', [TaskController::class, 'getAll']);
-Route::post('/tasks', 'TaskController@create');
-Route::get('/tasks/{id}', 'TaskController@get');
-Route::patch('/tasks/{id}', 'TaskController@updated');
-Route::delete('/tasks/{id}', 'TaskController@delete');
+Route::post('/tasks', [TaskController::class, 'create']);
+Route::get('/tasks/{id}', [TaskController::class, 'get']);
+Route::patch('/tasks/{id}', [TaskController::class, 'update']);
+Route::delete('/tasks/{id}', [TaskController::class, 'delete']);
 

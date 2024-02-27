@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
-            $table->uuid();
+            $table->id();
             $table->string("name")->require();
-            $table->text("description")->require();
             $table->dateTime("created_at")->useCurrent();
+            $table->dateTime("updated_at")->useCurrent();
         });
     }
 
