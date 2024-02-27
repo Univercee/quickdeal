@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "bootstrap-vue": "^2.23.1",
     "vue": "^3.4.20",
     "vue-loader": "^17.4.2",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "laravel-mix": "^6.0.49"

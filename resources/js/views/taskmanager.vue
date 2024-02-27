@@ -1,6 +1,12 @@
 <template>
   <div class="wrapper">
-    <navbar></navbar>
+    <div class="window">
+      <navbar class="mb-3"></navbar>
+      <div class="p-3">
+        <create-form></create-form>
+        <task-list></task-list>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,6 +16,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    
+<style scoped>
+   .window{
+      border: solid black 3px;
+    } 
 </style>

@@ -1,21 +1,22 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark align-items-start px-4">
-        <ul class="navbar-nav d-flex flex-column justify-content-start gap-3">
-            <li class="nav-item active">
-                <router-link class="nav-link text-primary" :to="{name:'index'}">Главная</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link text-primary" :to="{name:'taskmanager'}">Диспетчер задач</router-link>
-            </li>
-        </ul>
+    <nav class="w-100 bg-secondary d-flex justify-content-end">
+        <button class=" bg-danger" @click="close"><i class="fa-solid fa-xmark"></i></button>
     </nav>
 </template>
 
 <script>
+import router from '../libs/router'
 export default {
+    methods: {
+        close(){
+            router.push({name: 'index'})
+        }
+    }
 }
 </script>
 
-<style>
-
+<style scoped>
+    .navbar-nav{
+        gap: .5rem;
+    }
 </style>
