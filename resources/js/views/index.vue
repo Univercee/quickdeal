@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" style="position: relative;">
+  <div class="wrapper wrapper-index" style="position: relative;">
     <img src="wallpaper.webp" alt="" @click="unfocus">
     <div class="icon-wrapper" :style="{backgroundColor: focused?'rgba(0,0,255,.2)':''}" @click="focus" @dblclick="open">
       <img src="taskmanager.png" alt="" class="icon">

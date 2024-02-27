@@ -15,5 +15,10 @@ export default {
                 task.updated_at = data.updated_at
             }
         })
+    },
+    sort(state, field){
+        state.tasks.sort((a,b)=>{
+            return (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0)
+        })
     }
 }

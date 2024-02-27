@@ -5,9 +5,14 @@
     align-items: center;
     margin: 1rem;
 }
+
 @media screen and (max-width: 600px) {
     .wrapper {
         align-items: start;
         overflow-x: scroll;
+    }
+    .wrapper-index{
+        align-items: center !important;
+        overflow: auto !important;
     }
 }
