@@ -1,17 +1,17 @@
-steps:
-# Build the container image
-- name: 'gcr.io/cloud-builders/docker'
-#specify the name of the image
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/IMAGE', '.']
-# Push the container image to Container Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/IMAGE']
-# Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-#specify the service name and the region
-  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/$PROJECT_ID/IMAGE', '--region', 'REGION',         
-        "--platform", "managed",
-        "--port", "8080"]
-images:
-- gcr.io/$PROJECT_ID/IMAGE
+runtime: php
+env: flex
+
+runtime_config:
+    operating_system: "ubuntu22"
+    document_root: public
+
+handlers:
+- url: /(.*\.(gif|png|jpg|css|js))$
+  static_files: public/\1
+  upload: public/.*\.(gif|png|jpg|css|js)$
+- url: /css/app.css
+  static_files: public/\1
+  upload: public/css/app.css
+- url: /js/app.js
+  static_files: public/\1
+  upload: public/js/app.js
