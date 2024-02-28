@@ -1,14 +1,13 @@
-options:
-  logging: CLOUD_LOGGING_ONLY
-  pool: {}
-projectId: taskmanager-415712
 steps:
-- name: gcr.io/k8s-skaffold/pack
-  entrypoint: pack
-  args:
-  - build
-  - https://github.com/Univercee/quickdeal.git
-  - --builder
-  - gcr.io/buildpacks/builder:latest
-  - --network
-  - cloudbuild
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/taskmanager-415712/combined', '.']
+    id: 'building dockerfile'
+    dir: 'name_of_directory'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/taskmanager-415712/combined']
+    id: 'pushing the new image'
+    dir: 'name_of_directory'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'name_of_directory', '--image=gcr.io/taskmanager-415712/combined', '--platform=managed', '--region=us-central1', '--memory=4096M', '--service-account=cloud-run-pubsub-invoker@taskmanager-415712.iam.gserviceaccount.com']
+    id: 'deploying combined service'
+    dir: 'name_of_directory'
