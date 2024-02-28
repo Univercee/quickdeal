@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 services:
-  app:
+  main:
     build:
-      context: ./
+      context: .
+      dockerfile: Dockerfile
+    command: 'php artisan serve --host=127.0.0.1'
     volumes:
-      - .:/var/www
+      - .:/app
     ports:
-      - "8080:8080"
-    environment:
-      - APP_ENV=local
+      - 8000:80
